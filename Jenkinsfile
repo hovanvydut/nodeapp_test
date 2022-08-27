@@ -4,6 +4,11 @@ pipeline{
 			label 'jenkins_slave_1'
 		}
 	}
+	
+	triggers {
+		githubPush()
+	}
+	
 	environment {
 		DOCKERHUB_CREDENTIALS = credentials('dockerhub')
 		DROPLET_IP = credentials('droplet_1_ip')
