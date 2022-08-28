@@ -59,4 +59,26 @@ pipeline{
 			}
 		}
 	}
+
+	post {
+		always {
+            echo 'Always message'
+		}
+
+		success {
+            echo 'Success message'
+        }
+
+		failure {
+            echo 'Failed :( message'
+        }
+
+        changed {
+            echo 'Things were different before...'
+        }
+
+		aborted  {
+			echo "Aborted message"
+		}
+	}
 }
