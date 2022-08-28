@@ -51,7 +51,7 @@ pipeline{
 						sh '''
 							ssh -o StrictHostKeyChecking=no -l root $REMOTE_SERVER_DOMAIN uname -a &&
 							docker rm -f test &&
-							docker run -d --name=test hovanvydut/test-jenkins:amd64
+							docker run -d --name=test -p 3000:3000 hovanvydut/test-jenkins:amd64
 						'''
 					}
 				}
