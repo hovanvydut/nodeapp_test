@@ -50,6 +50,7 @@ pipeline{
 					sshagent(credentials: ['droplet_1_private_key']) {
 						sh '''
 							ssh -o StrictHostKeyChecking=no -l root $REMOTE_SERVER_DOMAIN uname -a &&
+							docker system prune --force --all --volumes &&
 							docker rm -f test &&
 							docker run -d --name=test -p 3000:3000 hovanvydut/test-jenkins:amd64
 						'''
